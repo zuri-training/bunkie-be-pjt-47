@@ -11,7 +11,7 @@ app.use(express.json());
 
 
 //DB config
-const db = require('./config/key').mongoURI;
+const db = require('./config/keys').mongoURI;
 
 
 
