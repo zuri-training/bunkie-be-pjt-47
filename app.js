@@ -1,4 +1,11 @@
 const express = require('express');
+const connectDB = require("./src/db");
+require("dotenv").config();
+const User = require("./src/models/user");
+
+
+//Connect to the database
+connectDB();
 
 const app = express();
 
