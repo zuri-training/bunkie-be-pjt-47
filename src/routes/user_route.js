@@ -10,11 +10,11 @@ const User = require('../models/User');
 //@desc  Register new user
 
 router.post('/', (req, res, next) =>{
-   const { name, email, password } = req.body;
+   const { firstname, lastname, email, password } = req.body;
 
 //Simple validation 
-if(!name || !email || !password){
-    return res.status(400).json({msg: "Please endter all fiedls"})
+if(!firstname || !lastname || !email || !password){
+    return res.status(400).json({msg: "Please enter all fielsd"})
 }
 
 // Checking for existing user
@@ -25,7 +25,8 @@ User.findOne({ email })
     }
 
     const newUser = new User({
-        name, 
+        firstname, 
+        lastname,
         email,
         password
     });
@@ -42,7 +43,8 @@ User.findOne({ email })
                     res.json({
                         user: {
                             id: user.id,
-                            name: user.name,
+                            firstname: user.firstname,
+                            lastname: user.lastname,
                             email: user.email
                         }
                     })
