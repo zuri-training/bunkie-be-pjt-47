@@ -31,12 +31,10 @@ const userSchema = new Schema({
         required: true
     },
     religion: {
-        type: String,
-        required: true
+        type: String
     },
     tribe: {
-        type: String,
-        required: true
+        type: String
     },
     dob: { 
         type: Date 
