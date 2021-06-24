@@ -16,8 +16,12 @@ passport.use(new GoogleStrategy(
         clientSecret: keys.googleClientSecret,
         callbackURL: '/auth/google/callback'
     },
-    accessToken => {
-        console.log(accessToken);
+    (accessToken, refreshToken, profile, cb) => {
+        User.findOrCreate({
+            gooogleId: profile.id
+        }, (err, user) => {
+            return cb(err, user)
+        })
     }
 ));
 
@@ -28,8 +32,13 @@ passport.use(new FacebookStrategy(
         clientSecret: keys.facebookClientSecret,
         callbackURL: "http://localhost:3000/auth/facebook/callback"
     },
-    accessToken => {
-        console.log(accessToken);
+    (accessToken, refreshToken, profile, cb) => {
+        User.findOrCreate({
+            facebookId: profile.id
+        }, (err, user) => {
+            return cb(err, user)
+        })
+
     }
 ));
 
@@ -37,9 +46,25 @@ passport.use(new FacebookStrategy(
 router.get('/google', passport.authenticate('google',{
     scope: ['profile', 'email']
 }));
+router.get('/auth/google/callback', 
+  passport.authenticate('google', { failureRedirect: '/login' }),
+  function(req, res) {
+    // Successful authentication, redirect home.
+    res.redirect('/');
+  });
+
+
+
 
 router.get('/facebook', passport.authenticate('facebook',{
     scope: ['profile', 'email']
 }));
+
+router.get('/auth/facebook/callback', 
+  passport.authenticate('google', { failureRedirect: '/login' }),
+  function(req, res) {
+    // Successful authentication, redirect home.
+    res.redirect('/');
+  });
 
 module.exports = router;
