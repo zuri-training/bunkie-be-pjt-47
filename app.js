@@ -2,6 +2,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const path = require('path');
 
+
 // const route = require('./routes/user_route');
 const { config } = require('process');
 const app = express();
@@ -10,8 +11,10 @@ const app = express();
 app.use(express.json());
 
 
+
 //DB config
 const db = require('./config/keys').mongoURI;
+const keys = require('./config/keys');
 
 
 
@@ -27,6 +30,7 @@ mongoose.connect(db,{
 
 //Use Routes
 app.use('/user', require('./routes/user_route'));
+app.use('/auth', require('./routes/auths'));
 
 
 const PORT = process.env.PORT || 5000;
