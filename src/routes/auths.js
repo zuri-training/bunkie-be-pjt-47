@@ -3,6 +3,8 @@ const router = express.Router();
 const passport = require('passport');
 const GoogleStrategy = require('passport-google-oauth20').Strategy
 const FacebookStrategy = require('passport-facebook').Strategy
+const { GOOGLE_CLIENT_ID, GOOGLE_CLIENT_SECRET, FACEBOOK_CLIENT_ID, FACEBOOK_CLIENT_SECRET } = process.env
+require("dotenv").config();
 
 
 
@@ -12,8 +14,8 @@ const keys = require('../../config/keys');
 //Google Passport Middleware
 passport.use(new GoogleStrategy(
     {
-        clientID: keys.googleClientID,
-        clientSecret: keys.googleClientSecret,
+        clientID: GOOGLE_CLIENT_ID,
+        clientSecret: GOOGLE_CLIENT_SECRET,
         callbackURL: '/auth/google/callback'
     },
     (accessToken, refreshToken, profile, cb) => {
@@ -28,8 +30,8 @@ passport.use(new GoogleStrategy(
 //Facebook Passport Middleware
 passport.use(new FacebookStrategy(
     {
-        clientID: keys.facebookClientID,
-        clientSecret: keys.facebookClientSecret,
+        clientID: FACEBOOK_CLIENT_ID,
+        clientSecret: FACEBOOK_CLIENT_SECRET,
         callbackURL: "/auth/facebook/callback"
     },
     (accessToken, refreshToken, profile, cb) => {
