@@ -30,7 +30,7 @@ passport.use(new FacebookStrategy(
     {
         clientID: keys.facebookClientID,
         clientSecret: keys.facebookClientSecret,
-        callbackURL: "http://localhost:3000/auth/facebook/callback"
+        callbackURL: "/auth/facebook/callback"
     },
     (accessToken, refreshToken, profile, cb) => {
         User.findOrCreate({
