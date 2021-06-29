@@ -1,5 +1,7 @@
 const express = require('express');
 const connectDB = require("./src/db");
+
+
 require("dotenv").config();
 
 
@@ -8,11 +10,11 @@ connectDB();
 
 const app = express();
 
-//Bodyparser Middleware
+// Middleware
 app.use(express.json());
+// app.use(validationResult());
 
-
-//User Routes
+//Routes
 app.use('/user', require('./src/routes/user_route'));
 app.use('/auth', require('./src/routes/auths'));
 
