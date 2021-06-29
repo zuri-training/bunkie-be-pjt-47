@@ -4,7 +4,7 @@ const bcrypt = require('bcryptjs');
 
 
 // User Model
-const User = require('../models/User');
+const User = require('../models/user');
 
 //@route GET /user
 //@desc  Register new user
