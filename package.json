@@ -8,7 +8,11 @@
     "start": "node app.js",
     "dev": "nodemon app.js"
   },
+<<<<<<< HEAD
   "engines" : {
+=======
+    "engines" : {
+>>>>>>> 13667a239438fab11c26f155e1fe27de3f1be07a
     "node": "12.18.2",
     "npm": "6.14.8"
   },
