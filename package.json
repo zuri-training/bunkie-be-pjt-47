@@ -8,6 +8,10 @@
     "start": "node app.js",
     "dev": "nodemon app.js"
   },
+    "engines" : {
+    "node": "12.18.2",
+    "npm": "6.14.8"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/zuri-training/bunkie-be-pjt-47.git"
