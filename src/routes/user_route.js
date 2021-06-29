@@ -6,8 +6,16 @@ const bcrypt = require('bcryptjs');
 // User Model
 const User = require('../models/user');
 
+
+const { signup, signin } = require('../controller/user');
+const { userSignupValidator } = require('../validator/index')
+
+router.post('/signup',  signup);
+router.post('/signin',  signin);
 //@route GET /user
-//@desc  Register new user
+//@desc  Register new user 
+
+
 
 router.post('/', (req, res, next) =>{
    const { firstname, lastname, email, password } = req.body;
