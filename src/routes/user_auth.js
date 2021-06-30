@@ -7,11 +7,12 @@ const bcrypt = require('bcryptjs');
 const User = require('../models/user');
 
 
-const { signup, signin } = require('../controller/user');
+const { signup, signin, signout, requireSignin } = require('../controller/auth');
 const { userSignupValidator } = require('../validator/index')
 
 router.post('/signup',  signup);
 router.post('/signin',  signin);
+router.get('/signout',  signout);
 //@route GET /user
 //@desc  Register new user 
 

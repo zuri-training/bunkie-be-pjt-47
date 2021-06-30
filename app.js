@@ -1,5 +1,6 @@
 const express = require('express');
 const connectDB = require("./src/db");
+const cookieParser = require('cookie-parser')
 
 
 require("dotenv").config();
@@ -12,10 +13,11 @@ const app = express();
 
 // Middleware
 app.use(express.json());
+app.use(cookieParser());
 // app.use(validationResult());
 
 //Routes
-app.use('/user', require('./src/routes/user_route'));
+app.use('/user', require('./src/routes/user_auth'));
 app.use('/auth', require('./src/routes/auths'));
 
 
