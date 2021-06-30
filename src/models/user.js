@@ -104,43 +104,43 @@ const User = mongoose.model('User', userSchema);
 
 module.exports = User;
 
-const userData = {
-    firstname : "Ada",
-    lastname : "Bewaji",
-    university: {
-        id: "edfbnb445556666666",
-        name : "Unilag",
-        state: "Lagos",
-        level : 100,
-        faculty: "computer science"
+// const userData = {
+//     firstname : "Ada",
+//     lastname : "Bewaji",
+//     university: {
+//         id: "edfbnb445556666666",
+//         name : "Unilag",
+//         state: "Lagos",
+//         level : 100,
+//         faculty: "computer science"
         
-    },
-    email: 'ade@yahoo.com',
-    password: "password",
-    religion: "Christian",
-    tribe: "Yoruba",
-    dob: new Date("Dec 26, 2013"),
-    gender: "male",
-    isVerified: false,
-    hasRoomate: false,
-    hasApartment:false,
-    isActive: false
+//     },
+//     email: 'ade@yahoo.com',
+//     password: "password",
+//     religion: "Christian",
+//     tribe: "Yoruba",
+//     dob: new Date("Dec 26, 2013"),
+//     gender: "male",
+//     isVerified: false,
+//     hasRoomate: false,
+//     hasApartment:false,
+//     isActive: false
 
-}
-const seedUser = async () => {
-    try {
-      const user = User.find();
-      if(!user)
-      {
-        const newUser = await User.insertMany(userData);
-        console.log(userData);
-      }
+// }
+// const seedUser = async () => {
+//     try {
+//       const user = User.find();
+//       if(!user)
+//       {
+//         const newUser = await User.insertMany(userData);
+//         console.log(userData);
+//       }
 
-    } catch (error) {
-      console.log(error);
-    }
-  };
+//     } catch (error) {
+//       console.log(error);
+//     }
+//   };
   
   
-  seedUser();
+//   seedUser();
 
