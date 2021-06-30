@@ -1,6 +1,7 @@
 const express = require('express');
 const connectDB = require("./src/db");
 const cookieParser = require('cookie-parser')
+const expressValidator = require('express-validator')
 
 
 require("dotenv").config();
@@ -14,11 +15,12 @@ const app = express();
 // Middleware
 app.use(express.json());
 app.use(cookieParser());
-// app.use(validationResult());
+app.use(expressValidator());
 
 //Routes
 app.use('/user', require('./src/routes/user_auth'));
 app.use('/auth', require('./src/routes/auths'));
+app.use('/', require('./src/routes/user'));
 
 
 const PORT = process.env.PORT || 5000;
