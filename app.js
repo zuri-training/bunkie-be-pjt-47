@@ -20,7 +20,7 @@ app.use(expressValidator());
 //Routes
 app.use('/user', require('./src/routes/user_auth'));
 app.use('/auth', require('./src/routes/auths'));
-app.use('/', require('./src/routes/user'));
+app.use('/api', require('./src/routes/user'));
 
 
 const PORT = process.env.PORT || 5000;
